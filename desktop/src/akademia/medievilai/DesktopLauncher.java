@@ -10,6 +10,7 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setTitle("Medievil AI");
+		config.setWindowedMode(GUIParams.SCREEN_WIDTH,GUIParams.SCREEN_HEIGHT);
 		new Lwjgl3Application(new Main(), config);
 	}
 }
