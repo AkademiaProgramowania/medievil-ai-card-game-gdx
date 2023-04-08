@@ -12,7 +12,7 @@ public class Card {
 
     @Override
     public String toString() {
-        return resource + " 10"; //TODO w przyszlosci dodac ilosc surowca
+        return resource + " amount"; //TODO w przyszlosci dodac ilosc surowca
     }
 
     public Resources getResource() {

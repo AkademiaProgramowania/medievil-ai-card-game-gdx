@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class CardView extends Actor {
 
-    private Texture texture;
+    final private Texture texture;
     private Card card;
     private BitmapFont font;
     private GlyphLayout layout = new GlyphLayout();
@@ -18,8 +18,7 @@ public class CardView extends Actor {
         this.texture = texture;
         this.card = card;
         font = new BitmapFont();
-
-        setBounds(0, 0, GUIParams.CARDVIEW_WIDTH, GUIParams.CARDVIEW_HEIGHT);
+        setBounds(0, 0, GUIParams.CARD_VIEW_WIDTH, GUIParams.CARD_VIEW_HEIGHT);
     }
 
     @Override
@@ -35,8 +34,8 @@ public class CardView extends Actor {
 
         batch.setColor(Color.WHITE);
         layout.setText(font, card.toString());
-        float cardCenterX = getX() + GUIParams.CARDVIEW_WIDTH / 2 - layout.width / 2;
-        float cardCenterY = getY() + GUIParams.CARDVIEW_HEIGHT / 2 - layout.height / 2;
+        float cardCenterX = getX() + GUIParams.CARD_VIEW_WIDTH / 2 - layout.width / 2;
+        float cardCenterY = getY() + GUIParams.CARD_VIEW_HEIGHT / 2 - layout.height / 2;
         font.draw(batch, layout, cardCenterX, cardCenterY);
         super.draw(batch, parentAlpha);
     }

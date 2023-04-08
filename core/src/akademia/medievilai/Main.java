@@ -12,7 +12,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class Main extends ApplicationAdapter {
-	SpriteBatch batch;
+	private SpriteBatch batch;
 	private PlayerView playerView;
 	private Stage stage;
 	
@@ -20,7 +20,8 @@ public class Main extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 		Player player = new Player();
-		Camera camera = new OrthographicCamera();
+		OrthographicCamera camera = new OrthographicCamera();
+		camera.setToOrtho(false, GUIParams.SCREEN_WIDTH, GUIParams.SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport(camera), batch);
 		playerView = new PlayerView(player);
 
