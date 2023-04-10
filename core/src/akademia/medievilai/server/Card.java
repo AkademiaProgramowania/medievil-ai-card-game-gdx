@@ -1,4 +1,4 @@
-package akademia.medievilai;
+package akademia.medievilai.server;
 
 public class Card {
 

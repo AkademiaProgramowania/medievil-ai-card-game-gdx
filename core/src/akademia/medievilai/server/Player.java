@@ -1,4 +1,10 @@
-package akademia.medievilai;
+package akademia.medievilai.server;
+
+import akademia.medievilai.server.Card;
+import akademia.medievilai.server.Resources;
+import akademia.medievilai.server.events.Event;
+import akademia.medievilai.server.events.EventBus;
+import akademia.medievilai.server.events.EventListener;
 
 import java.util.ArrayList;
 import java.util.List;
