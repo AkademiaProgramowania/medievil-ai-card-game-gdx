@@ -1,5 +1,7 @@
-package akademia.medievilai;
+package akademia.medievilai.client;
 
+import akademia.medievilai.server.GUIParams;
+import akademia.medievilai.server.Card;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;

@@ -1,4 +1,4 @@
-package akademia.medievilai;
+package akademia.medievilai.server;
 
 public enum Resources {
     WOOD("Wood"),

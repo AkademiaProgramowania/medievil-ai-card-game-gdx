@@ -1,6 +1,10 @@
-package akademia.medievilai;
+package akademia.medievilai.client;
 
+import akademia.medievilai.server.GUIParams;
+import akademia.medievilai.server.Player;
+import akademia.medievilai.server.Card;
 import com.badlogic.gdx.scenes.scene2d.Group;
+
 
 import java.util.List;
 
