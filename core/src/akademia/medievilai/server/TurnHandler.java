@@ -16,10 +16,10 @@ public class TurnHandler implements EventListener {
     public void update(Event eventType) {
         switch (eventType) {
             case CARD_PLAYED:
-                //card played
+                System.out.println("Card played");
                 break;
             case TURN_END:
-                //turn end
+                System.out.println("Turn ended");
                 break;
         }
     }

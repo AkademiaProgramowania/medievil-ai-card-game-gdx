@@ -24,7 +24,7 @@ public class EventBusImplementation {
         allListeners.get(eventType).remove(listener);
     }
 
-    public void update(Event eventType) {
+    public void notify(Event eventType) {
         List<EventListener> eventListeners = allListeners.get(eventType);
         for (EventListener listener : eventListeners) {
             listener.update(eventType);
