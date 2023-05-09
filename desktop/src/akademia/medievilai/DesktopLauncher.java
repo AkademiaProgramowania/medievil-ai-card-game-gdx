@@ -1,5 +1,6 @@
 package akademia.medievilai;
 
+import akademia.medievilai.client.GameScreen;
 import akademia.medievilai.server.GUIParams;
 import akademia.medievilai.server.Main;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
@@ -12,6 +13,6 @@ public class DesktopLauncher {
 		config.setForegroundFPS(60);
 		config.setTitle("Medievil AI");
 		config.setWindowedMode(GUIParams.SCREEN_WIDTH,GUIParams.SCREEN_HEIGHT);
-		new Lwjgl3Application(new Main(), config);
+		new Lwjgl3Application(new GameScreen(), config);
 	}
 }
