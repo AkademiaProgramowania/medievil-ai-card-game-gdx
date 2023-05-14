@@ -3,6 +3,8 @@ package akademia.medievilai.client;
 import akademia.medievilai.server.GUIParams;
 import akademia.medievilai.server.Player;
 import akademia.medievilai.server.TurnHandler;
+import akademia.medievilai.server.events.Event;
+import akademia.medievilai.server.events.EventBus;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
@@ -23,36 +25,44 @@ public class MainScreen implements Screen {
     private final GameScreen game;
     private final OrthographicCamera camera;
     private Stage stage;
-    private TurnHandler turnHandler;
-    private TextButton button;
+    private Skin buttonsSkin;
 
     public MainScreen(final GameScreen game) {
         this.game = game;
 
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, GUIParams.SCREEN_WIDTH, GUIParams.SCREEN_HEIGHT);
+        camera.setToOrtho(false, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+        buttonsSkin = new Skin(Gdx.files.internal("uiskin.json"));
 
         stage = new Stage(new ScreenViewport(camera), game.getBatch());
-        Gdx.input.setInputProcessor(stage);
 
-        turnHandler = new TurnHandler();
-
-        Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
-        button = new TextButton("Build view", skin, "default");
-        button.setBounds((int)(SCREEN_WIDTH * 0.1), (int) (SCREEN_HEIGHT * 0.8), 170, 50);
-        button.addListener(new ClickListener() {
+        final TextButton buildButton = new TextButton("Build view", buttonsSkin, "default");
+        buildButton.setBounds((int)(SCREEN_WIDTH * 0.1), (int) (SCREEN_HEIGHT * 0.8), 170, 50);
+        buildButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                game.setScreen(new BuildScreen(game, button));
+                game.setScreen(new BuildScreen(game, buildButton));
+            }
+        });
+
+        final TextButton turnEndButton = new TextButton("End turn", buttonsSkin, "default");
+        turnEndButton.setBounds((int)(SCREEN_WIDTH * 0.1), (int) (SCREEN_HEIGHT * 0.7), 170, 50);
+        turnEndButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                EventBus.notify(Event.TURN_END);
             }
         });
 
         stage.addActor(game.getPlayerView());
-        stage.addActor(button);
+        stage.addActor(buildButton);
+        stage.addActor(turnEndButton);
     }
 
     @Override
     public void show() {
+        Gdx.input.setInputProcessor(stage);
     }
 
     @Override

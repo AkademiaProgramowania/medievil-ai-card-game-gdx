@@ -23,7 +23,6 @@ public class BuildScreen implements Screen {
     private final GameScreen game;
     private final OrthographicCamera camera;
     private Stage stage;
-    private TurnHandler turnHandler;
     private TextButton button;
     private ShapeRenderer shapeRenderer;
 
@@ -39,7 +38,6 @@ public class BuildScreen implements Screen {
         stage = new Stage(new ScreenViewport(camera), game.getBatch());
         Gdx.input.setInputProcessor(stage);
 
-        turnHandler = new TurnHandler();
 
         //button.setBounds((int)(SCREEN_WIDTH * 0.1), (int) (SCREEN_HEIGHT * 0.8), 150, 50);
         button.addListener(new ClickListener() {

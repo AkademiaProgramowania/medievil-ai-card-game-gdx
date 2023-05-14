@@ -1,5 +1,6 @@
 package akademia.medievilai.server;
 
+import akademia.medievilai.client.GameScreen;
 import akademia.medievilai.client.PlayerView;
 import akademia.medievilai.server.events.Event;
 import akademia.medievilai.server.events.EventBus;
@@ -14,20 +15,20 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class Main extends ApplicationAdapter {
-	private SpriteBatch batch;
+	private GameScreen game;
 	private PlayerView playerView;
 	private Stage stage;
-	private TurnHandler turnHandler;
-	
+
+	public Main(GameScreen game) {
+		this.game = game;
+	}
+
 	@Override
 	public void create () {
-		batch = new SpriteBatch();
-		Player player = new Player();
 		OrthographicCamera camera = new OrthographicCamera();
 		camera.setToOrtho(false, GUIParams.SCREEN_WIDTH, GUIParams.SCREEN_HEIGHT);
-		stage = new Stage(new ScreenViewport(camera), batch);
-		playerView = new PlayerView(player);
-		turnHandler = new TurnHandler();
+		stage = new Stage(new ScreenViewport(camera), game.getBatch());
+		playerView = game.getPlayerView();
 
 		stage.addActor(playerView);
 	}
@@ -41,7 +42,7 @@ public class Main extends ApplicationAdapter {
 	
 	@Override
 	public void dispose () {
-		batch.dispose();
+		game.getBatch().dispose();
 	}
 
 

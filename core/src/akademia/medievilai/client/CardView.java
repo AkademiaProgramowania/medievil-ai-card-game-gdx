@@ -36,8 +36,8 @@ public class CardView extends Actor {
 
         batch.setColor(Color.WHITE);
         layout.setText(font, card.toString());
-        float cardCenterX = getX() + GUIParams.CARD_VIEW_WIDTH / 2 - layout.width / 2;
-        float cardCenterY = getY() + GUIParams.CARD_VIEW_HEIGHT / 2 - layout.height / 2;
+        float cardCenterX = getX() + GUIParams.CARD_VIEW_WIDTH / 2f - layout.width / 2;
+        float cardCenterY = getY() + GUIParams.CARD_VIEW_HEIGHT / 2f - layout.height / 2;
         font.draw(batch, layout, cardCenterX, cardCenterY);
         super.draw(batch, parentAlpha);
     }
